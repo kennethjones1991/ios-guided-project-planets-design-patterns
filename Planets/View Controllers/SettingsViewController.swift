@@ -17,13 +17,15 @@ class SettingsViewController: UIViewController {
         updateViews()
     }
     
-    private func updateViews() {
-        let userDefaults = UserDefaults.standard
-        shouldShowPlutoSwitch.isOn = userDefaults.bool(forKey: .shouldShowPlutoKey)
-    }
-    
     @IBAction func changeShouldShowPluto(_ sender: UISwitch) {
         let userDefaults = UserDefaults.standard
         userDefaults.set(sender.isOn, forKey: .shouldShowPlutoKey)
+    }
+    
+    // MARK: - Private
+    
+    private func updateViews() {
+        let userDefaults = UserDefaults.standard
+        shouldShowPlutoSwitch.isOn = userDefaults.bool(forKey: .shouldShowPlutoKey)
     }
 }
