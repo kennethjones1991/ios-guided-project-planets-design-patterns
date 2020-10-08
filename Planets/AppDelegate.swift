@@ -19,5 +19,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    /*
+     *
+     *  STEP 1 for implementing memento (save state)
+     *
+     */
+    func application(_ application: UIApplication, shouldSaveSecureApplicationState coder: NSCoder) -> Bool {
+        // Sometimes you may need to prevent state restoration to hide sensitive data
+        // or depending on if user actually finished logging in
+        
+        // if userIsLoggingIn() {
+        //    return false
+        // }
+        
+        // In all other cases you'll return true to enable it to save the state
+        return true
+    }
+    
+    func application(_ application: UIApplication, shouldRestoreSecureApplicationState coder: NSCoder) -> Bool {
+        return true
+    }
 }
 

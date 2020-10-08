@@ -8,12 +8,17 @@
 
 import UIKit
 
-struct Planet {
+struct Planet: Codable {
     var name: String
-    var image: UIImage
+    var imageName: String
     
     init(name: String, imageName: String) {
         self.name = name
-        self.image = UIImage(named: imageName)!
-    }    
+        self.imageName = imageName
+    }
+    
+    // NOTE: UIImage is not Codable, instead make it a computed property
+    var image: UIImage {
+        return UIImage(named: imageName)!
+    }
 }

@@ -16,16 +16,17 @@ class PlanetsCollectionViewController: UICollectionViewController {
     
     let planetController = PlanetController()
     
-    var planets: [Planet] {
-        let shouldShowPluto = UserDefaults.standard.bool(forKey: .shouldShowPlutoKey)
-        return shouldShowPluto ? planetController.planetsWithPluto : planetController.planetsWithoutPluto
-    }
-    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshViews), name: .shouldShowPlutoChanged, object: nil)
 		updateViews()
 	}
+    
+    @objc func refreshViews(notification: NSNotification) {
+        print("Notification Observed: \(notification.name)")
+        updateViews()
+    }
 	
 	func updateViews() {
         collectionView?.reloadData()
@@ -48,7 +49,7 @@ class PlanetsCollectionViewController: UICollectionViewController {
             guard let indexPath = collectionView?.indexPathsForSelectedItems?.first else { return }
 			
 			guard let detailVC = segue.destination as? PlanetDetailViewController else { return }
-            detailVC.planet = planets[indexPath.row]
+            detailVC.planet = planetController.planets[indexPath.row]
         }
     }
 	
@@ -61,13 +62,13 @@ class PlanetsCollectionViewController: UICollectionViewController {
 // MARK: UICollectionViewDataSource
 extension PlanetsCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return planets.count
+        return planetController.planets.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlanetCell", for: indexPath) as! PlanetCollectionViewCell
         
-        let planet = planets[indexPath.item]
+        let planet = planetController.planets[indexPath.item]
         cell.imageView.image = planet.image
         cell.textLabel.text = planet.name
         

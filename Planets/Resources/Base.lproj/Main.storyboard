@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AAb-xx-CdQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AAb-xx-CdQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--Planets Collection View Controller-->
         <scene sceneID="fS0-tz-hph">
             <objects>
-                <collectionViewController id="keT-FZ-FXm" customClass="PlanetsCollectionViewController" customModule="Planets" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="PlanetsCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="keT-FZ-FXm" customClass="PlanetsCollectionViewController" customModule="Planets" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="T0m-OS-aMT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,7 +116,7 @@
                                     </switch>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szw-Nr-YK2">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szw-Nr-YK2">
                                 <rect key="frame" x="322" y="54" width="37" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Done"/>
@@ -125,6 +125,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="i3s-jp-ulm"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="i3s-jp-ulm" firstAttribute="trailing" secondItem="pkr-A0-RiC" secondAttribute="trailing" constant="20" id="B2c-5y-E9L"/>
@@ -134,7 +135,6 @@
                             <constraint firstItem="i3s-jp-ulm" firstAttribute="trailing" secondItem="szw-Nr-YK2" secondAttribute="trailing" constant="16" id="kzn-Nb-62t"/>
                             <constraint firstItem="pkr-A0-RiC" firstAttribute="top" secondItem="i3s-jp-ulm" secondAttribute="top" constant="80" id="xGT-nc-oko"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="i3s-jp-ulm"/>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="200"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -153,7 +153,7 @@
         <!--Planet Detail View Controller-->
         <scene sceneID="Npi-8O-xaG">
             <objects>
-                <viewController id="LSU-Mb-HI5" customClass="PlanetDetailViewController" customModule="Planets" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlanetDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LSU-Mb-HI5" customClass="PlanetDetailViewController" customModule="Planets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oKm-Ur-rt9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,6 +171,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="NwE-Su-pxt"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VEO-5n-v0D" firstAttribute="leading" secondItem="NwE-Su-pxt" secondAttribute="leading" id="FGk-5H-gWm"/>
@@ -179,7 +180,6 @@
                             <constraint firstItem="VEO-5n-v0D" firstAttribute="trailing" secondItem="NwE-Su-pxt" secondAttribute="trailing" id="qDB-ip-IbX"/>
                             <constraint firstItem="ZV7-KI-LHE" firstAttribute="top" secondItem="VEO-5n-v0D" secondAttribute="bottom" constant="8" id="tD8-vm-hUn"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="NwE-Su-pxt"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="VEO-5n-v0D" id="D5o-St-Vf9"/>
@@ -193,7 +193,7 @@
         <!--Navigation Controller-->
         <scene sceneID="hgW-K2-TaZ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AAb-xx-CdQ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PlanetNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AAb-xx-CdQ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="h8c-as-0HM">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
